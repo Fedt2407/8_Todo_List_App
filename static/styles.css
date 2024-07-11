@@ -1,0 +1,137 @@
+/* styles.css */
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+body,
+form,
+input,
+textarea,
+button {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.main-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form input[type="text"] {
+  width: 65%;
+  height: 40px;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#date-input {
+  width: 25%;
+  height: 40px;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #777;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  height: 40px;
+  padding: 13px 20px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #cda434;
+}
+
+#task-list ul {
+  list-style: none;
+}
+
+#task-list li {
+  background: #f4f4f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#task-list li:nth-child(odd) {
+  background: #e9e9ef;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #333;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}

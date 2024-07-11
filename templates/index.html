@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Todo List App</h1>
+    </header>
+
+    <main>
+      <section id="task-form">
+        <h2>Add Task</h2>
+        <form>
+          <div class="main-input">
+            <input type="text" id="task-input" placeholder="Enter task name" />
+            <input type="date" id="date-input" placeholder="Enter task date" />
+            <button type="submit">Add</button>
+          </div>
+
+          <div class="description">
+            <textarea
+              id="description-input"
+              placeholder="Enter task description (optional)"
+            ></textarea>
+          </div>
+        </form>
+      </section>
+
+      <section id="task-list">
+        <h2>Task List</h2>
+        <ul>
+          <!-- Qui verranno aggiunti dinamicamente gli elementi della lista -->
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright Fxx1 - 2024 Todo List App. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Aggiungi qui il tuo JavaScript personalizzato
+    </script>
+  </body>
+</html>
