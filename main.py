@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
@@ -42,7 +42,7 @@ with app.app_context():
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        tasks = Task.query.all()
+        tasks = Task.query.order_by(Task.date).all()
         return render_template('index.html', tasks=tasks)
 
     if request.method == "POST":
@@ -66,7 +66,7 @@ def index():
             db.session.add(new_task)
             db.session.commit()
             # return jsonify(success="Successfully added the new task.")
-            return render_template('index.html')
+            return redirect(url_for('index'))
         except Exception as e:
             db.session.rollback()
             return jsonify(error=f"Failed to add the new task: {str(e)}"), 500

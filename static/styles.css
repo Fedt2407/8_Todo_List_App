@@ -107,6 +107,11 @@ form button:hover {
   list-style: none;
 }
 
+#task-list {
+  overflow-y: scroll;
+  max-height: 350px;
+}
+
 #task-list li {
   background: #f4f4f9;
   margin-bottom: 10px;
