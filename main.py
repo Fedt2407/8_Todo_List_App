@@ -42,42 +42,28 @@ with app.app_context():
 def index():
     if request.method == "POST":
         name = request.form.get("name")
-        map_url = request.form.get("map_url")
-        img_url = request.form.get("img_url")
-        location = request.form.get("loc")
-        has_sockets = bool(request.form.get("sockets"))
-        has_toilet = bool(request.form.get("toilet"))
-        has_wifi = bool(request.form.get("wifi"))
-        can_take_calls = bool(request.form.get("calls"))
-        seats = request.form.get("seats")
-        coffee_price = request.form.get("coffee_price")
+        date = request.form.get("date")
+        description = request.form.get("descrition")
 
         # Verifies that the name is not empty
         if not name:
             return jsonify(error="Name is required."), 400
 
         # Create a new Task object
-        new_cafe = Task(
+        new_task = Task(
             name=name,
-            map_url=map_url,
-            img_url=img_url,
-            location=location,
-            has_sockets=has_sockets,
-            has_toilet=has_toilet,
-            has_wifi=has_wifi,
-            can_take_calls=can_take_calls,
-            seats=seats,
-            coffee_price=coffee_price,
+            date=date,
+            description=description,
         )
 
-        # Aggiungi il nuovo cafe al database
+        # Add the new task to the database
         try:
-            db.session.add(new_cafe)
+            db.session.add(new_task)
             db.session.commit()
-            return jsonify(success="Successfully added the new cafe.")
+            return jsonify(success="Successfully added the new task.")
         except Exception as e:
             db.session.rollback()
-            return jsonify(error=f"Failed to add the new cafe: {str(e)}"), 500
+            return jsonify(error=f"Failed to add the new task: {str(e)}"), 500
     return render_template('index.html')
 
 

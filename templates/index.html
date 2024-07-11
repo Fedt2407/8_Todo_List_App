@@ -18,17 +18,28 @@
     <main>
       <section id="task-form">
         <h2>Add Task</h2>
-        <form>
+        <form action="{{ url_for('index') }}" method="POST">
           <div class="main-input">
-            <input type="text" id="task-input" placeholder="Enter task name" />
-            <input type="date" id="date-input" placeholder="Enter task date" />
-            <button type="submit">Add</button>
+            <input
+              type="text"
+              id="task-input"
+              placeholder="Enter task name"
+              name="name"
+            />
+            <input
+              type="date"
+              id="date-input"
+              placeholder="Enter task date"
+              name="date"
+            />
+            <button type="submit" value="add-task">Add</button>
           </div>
 
           <div class="description">
             <textarea
               id="description-input"
               placeholder="Enter task description (optional)"
+              name="description"
             ></textarea>
           </div>
         </form>
