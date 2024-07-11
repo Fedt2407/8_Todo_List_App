@@ -38,8 +38,13 @@ class Task(db.Model):
 with app.app_context():
     db.create_all()
 
+
 @app.route('/', methods=["GET", "POST"])
 def index():
+    if request.method == "GET":
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks)
+
     if request.method == "POST":
         name = request.form.get("name")
         date = request.form.get("date")
