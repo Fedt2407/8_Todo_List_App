@@ -50,28 +50,33 @@ def index():
         date = request.form.get("date")
         description = request.form.get("description")
 
-        # Verifies that the name is not empty
         if not name:
             return jsonify(error="Name is required."), 400
 
-        # Create a new Task object
-        new_task = Task(
-            name=name,
-            date=date,
-            description=description,
-        )
+        new_task = Task(name=name, date=date, description=description)
 
-        # Add the new task to the database
         try:
             db.session.add(new_task)
             db.session.commit()
-            # return jsonify(success="Successfully added the new task.")
             return redirect(url_for('index'))
         except Exception as e:
             db.session.rollback()
             return jsonify(error=f"Failed to add the new task: {str(e)}"), 500
+        
 
-    return render_template('index.html')
+@app.route('/delete/<int:task_id>', methods=["POST"])
+def delete_task(task_id):
+    task = Task.query.get(task_id)
+    if task:
+        try:
+            db.session.delete(task)
+            db.session.commit()
+            return redirect(url_for('index'))
+        except Exception as e:
+            db.session.rollback()
+            return jsonify(error=f"Failed to delete the task: {str(e)}"), 500
+    else:
+        return jsonify(error="Task not found."), 404
 
 
 if __name__ == '__main__':

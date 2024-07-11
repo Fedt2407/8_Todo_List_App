@@ -34,7 +34,7 @@
               name="date"
               required
             />
-            <button type="submit" value="add-task">ADD</button>
+            <button type="submit" value="add-task" class="add-btn">ADD</button>
           </div>
 
           <div class="description">
@@ -53,7 +53,10 @@
           {% for task in tasks %}
             <li>
               {{ task.name }} - {{ task.date }} - {{ task.description }}
-              <button class="done-btn" onclick="deleteTask('{{ task.id }}')">DONE</button>
+              <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST" style="display: inline;">
+                <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" class="done-btn">DONE</button>
+            </form>
             </li>
           {% endfor %}
         </ul>
@@ -62,7 +65,7 @@
     </main>
 
     <footer>
-      <p>&copy; Copyright Fxx1 - 2024 Todo List App. All rights reserved.</p>
+      <p>&copy; Copyright Fxx1 - 2024 Todo List App - All rights reserved.</p>
     </footer>
 
     <script>

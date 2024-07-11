@@ -88,7 +88,7 @@ textarea {
   font-size: 1rem;
 }
 
-form button {
+.add-btn {
   height: 40px;
   padding: 13px 20px;
   border: none;
@@ -99,7 +99,7 @@ form button {
   transition: background 0.3s ease;
 }
 
-form button:hover {
+.add-btn:hover {
   background: #cda434;
 }
 
