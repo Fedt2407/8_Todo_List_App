@@ -43,7 +43,7 @@ def index():
     if request.method == "POST":
         name = request.form.get("name")
         date = request.form.get("date")
-        description = request.form.get("descrition")
+        description = request.form.get("description")
 
         # Verifies that the name is not empty
         if not name:
@@ -60,10 +60,12 @@ def index():
         try:
             db.session.add(new_task)
             db.session.commit()
-            return jsonify(success="Successfully added the new task.")
+            # return jsonify(success="Successfully added the new task.")
+            return render_template('index.html')
         except Exception as e:
             db.session.rollback()
             return jsonify(error=f"Failed to add the new task: {str(e)}"), 500
+
     return render_template('index.html')
 
 
