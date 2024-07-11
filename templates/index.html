@@ -34,7 +34,7 @@
               name="date"
               required
             />
-            <button type="submit" value="add-task">Add</button>
+            <button type="submit" value="add-task">ADD</button>
           </div>
 
           <div class="description">
@@ -51,7 +51,10 @@
         <h2>Task List</h2>
         <ul>
           {% for task in tasks %}
-            <li>{{ task.name }} - {{ task.date }}</li>
+            <li>
+              {{ task.name }} - {{ task.date }} - {{ task.description }}
+              <button class="done-btn" onclick="deleteTask('{{ task.id }}')">DONE</button>
+            </li>
           {% endfor %}
         </ul>
         </ul>

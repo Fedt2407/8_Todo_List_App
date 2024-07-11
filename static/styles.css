@@ -103,6 +103,21 @@ form button:hover {
   background: #cda434;
 }
 
+.done-btn {
+  padding: 5px 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: small;
+}
+
+.done-btn:hover {
+  background: #cda434;
+}
+
 #task-list ul {
   list-style: none;
 }
