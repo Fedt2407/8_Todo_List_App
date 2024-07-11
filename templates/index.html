@@ -52,7 +52,7 @@
         <ul>
           {% for task in tasks %}
             <li>
-              {{ task.name }} - {{ task.date }} - {{ task.description }}
+              {{ task.name }} by {{ task.date }} - {{ task.description }}
               <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST" style="display: inline;">
                 <input type="hidden" name="_method" value="DELETE" />
                 <button type="submit" class="done-btn">DONE</button>
